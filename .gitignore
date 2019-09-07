@@ -247,14 +247,19 @@ paket-files/
 # FAKE - F# Make
 .fake/
 
+# Coverage
+coverage/
+
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# Istanbul Code Coverage
+.nyc_output/
 
 # MSAL specific ignore files
 node_modules/
 typings/
 lib-commonjs/
 lib-es6/
-lib/msal-core/lib-commonjs
-lib/msal-core/lib-es6
+dist/
