@@ -1,3 +1,18 @@
+What is this fork about?
+========================
+
+I fixed the google login issues with the help of the great community of github (the idea wasn't from me)
+
+It is a precompiled module. Use it like this:
+```
+var Msal = require('msal/dist/msal.js')
+
+msalInstance = new Msal.UserAgentApplication({...});
+```
+
+
+
+
 
 Microsoft Authentication Library for JavaScript (MSAL.js)
 =========================================================
