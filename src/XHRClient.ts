@@ -1,7 +1,5 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License.
- */
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
 
 /**
  * XHR client for JSON endpoints
@@ -9,55 +7,53 @@
  * @hidden
  */
 export class XhrClient {
-    public sendRequestAsync(url: string, method: string, enableCaching?: boolean): Promise<any> {
-        return new Promise<string>((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            xhr.open(method, url, /* async: */ true);
-            if (enableCaching) {
-                /*
-                 * TODO: (shivb) ensure that this can be cached
-                 * xhr.setRequestHeader("Cache-Control", "Public");
-                 */
-            }
+  public sendRequestAsync(url: string, method: string, enableCaching?: boolean): Promise<any> {
+    return new Promise<string>((resolve, reject) => {
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url, /*async: */ true);
+      if (enableCaching) {
+        // TODO: (shivb) ensure that this can be cached
+        // xhr.setRequestHeader("Cache-Control", "Public");
+      }
 
-            xhr.onload = (ev) => {
-                if (xhr.status < 200 || xhr.status >= 300) {
-                    reject(this.handleError(xhr.responseText));
-                }
-                let jsonResponse;
-                try {
-                    jsonResponse = JSON.parse(xhr.responseText);
-                } catch (e) {
-                    reject(this.handleError(xhr.responseText));
-                }
+      xhr.onload = (ev) => {
+          if (xhr.status < 200 || xhr.status >= 300) {
+              reject(this.handleError(xhr.responseText));
+          }
 
-                resolve(jsonResponse);
-            };
+          try {
+              var jsonResponse = JSON.parse(xhr.responseText);
+          } catch (e) {
+              reject(this.handleError(xhr.responseText));
+          }
 
-            xhr.onerror = (ev) => {
-                reject(xhr.status);
-            };
+          resolve(jsonResponse);
+      };
 
-            if (method === "GET") {
-                xhr.send();
-            }
-            else {
-                throw "not implemented";
-            }
-        });
+      xhr.onerror = (ev) => {
+        reject(xhr.status);
+      };
+
+      if (method === "GET") {
+        xhr.send();
+      }
+      else {
+        throw "not implemented";
+      }
+    });
+  }
+
+  protected handleError(responseText: string): any {
+    var jsonResponse;
+    try {
+      jsonResponse = JSON.parse(responseText);
+      if (jsonResponse.error) {
+          return jsonResponse.error;
+      } else {
+          throw responseText;
+      }
+    } catch (e) {
+      return responseText;
     }
-
-    protected handleError(responseText: string): any {
-        let jsonResponse;
-        try {
-            jsonResponse = JSON.parse(responseText);
-            if (jsonResponse.error) {
-                return jsonResponse.error;
-            } else {
-                throw responseText;
-            }
-        } catch (e) {
-            return responseText;
-        }
-    }
+  }
 }

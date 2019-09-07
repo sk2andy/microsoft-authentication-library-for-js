@@ -106,16 +106,13 @@
 				<h4 id="1-instantiate-the-useragentapplication">1. Instantiate the UserAgentApplication</h4>
 				<p><code>UserAgentApplication</code> can be configured with a variety of different options, detailed in our <a href="https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL.js-1.0.0-api-release#configuration-options">Wiki</a>, but the only required parameter is <code>auth.clientId</code>.</p>
 				<p>After instantiating your instance, if you plan on using a redirect flow (<code>loginRedirect</code> and <code>acquireTokenRedirect</code>), you must register a callback handlers  using <code>handleRedirectCallback(authCallback)</code> where <code>authCallback = function(AuthError, AuthResponse)</code>. The callback function is called after the authentication request is completed either successfully or with a failure. This is not required for the popup flows since they return promises.</p>
-				<pre><code class="language-JavaScript">    <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> Msal <span class="hljs-keyword">from</span> <span class="hljs-string">"msal"</span>;
-    <span class="hljs-comment">// if using cdn version, 'Msal' will be available in the global scope</span>
-
-    <span class="hljs-keyword">const</span> msalConfig = {
+				<pre><code class="language-JavaScript">    <span class="hljs-keyword">var</span> msalConfig = {
         <span class="hljs-attr">auth</span>: {
             <span class="hljs-attr">clientId</span>: <span class="hljs-string">'your_client_id'</span>
         }
     };
 
-    <span class="hljs-keyword">const</span> msalInstance = <span class="hljs-keyword">new</span> Msal.UserAgentApplication(msalConfig);
+    <span class="hljs-keyword">var</span> msalInstance = <span class="hljs-keyword">new</span> Msal.UserAgentApplication(msalConfig);
 
     msalInstance.handleRedirectCallback(<span class="hljs-function">(<span class="hljs-params">error, response</span>) =&gt;</span> {
         <span class="hljs-comment">// handle redirect response or error</span>

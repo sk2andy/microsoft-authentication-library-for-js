@@ -1,7 +1,5 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License.
- */
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
 
 import { AuthError } from "./AuthError";
 import { IdToken } from "../IdToken";
@@ -122,7 +120,7 @@ export class ClientAuthError extends AuthError {
     }
 
     static createPopupWindowError(errDetail?: string): ClientAuthError {
-        let errorMessage = ClientAuthErrorMessage.popUpWindowError.desc;
+        var errorMessage = ClientAuthErrorMessage.popUpWindowError.desc;
         if (errDetail && !StringUtils.isEmpty(errDetail)) {
             errorMessage += ` Details: ${errDetail}`;
         }
@@ -139,13 +137,13 @@ export class ClientAuthError extends AuthError {
             `${ClientAuthErrorMessage.invalidIdToken.desc} Given token: ${idToken}`);
     }
 
-    // TODO: Is this not a security flaw to send the user the state expected??
+    //TODO: Is this not a security flaw to send the user the state expected??
     static createInvalidStateError(invalidState: string, actualState: string): ClientAuthError {
         return new ClientAuthError(ClientAuthErrorMessage.invalidStateError.code,
             `${ClientAuthErrorMessage.invalidStateError.desc} ${invalidState}, state expected : ${actualState}.`);
     }
 
-    // TODO: Is this not a security flaw to send the user the Nonce expected??
+    //TODO: Is this not a security flaw to send the user the Nonce expected??
     static createNonceMismatchError(invalidNonce: string, actualNonce: string): ClientAuthError {
         return new ClientAuthError(ClientAuthErrorMessage.nonceMismatchError.code,
             `${ClientAuthErrorMessage.nonceMismatchError.desc} ${invalidNonce}, nonce expected : ${actualNonce}.`);

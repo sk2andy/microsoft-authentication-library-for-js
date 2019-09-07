@@ -1,44 +1,42 @@
 {
-  "name": "msal",
+  "_from": "msal",
+  "_id": "msal@1.1.3",
+  "_inBundle": false,
+  "_integrity": "sha512-cdShb+N1H3OyR1y46ij6OO7QzeqC6BxrbrNcouS4JBrr1+DnZ55TumxQKEzWmTXHvsbsuz5PCyXZl812Un8L9g==",
+  "_location": "/msal",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "msal",
+    "name": "msal",
+    "escapedName": "msal",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/msal/-/msal-1.1.3.tgz",
+  "_shasum": "d8c501d513f5e52eaf000f20a245526fc1ecaa2a",
+  "_spec": "msal",
+  "_where": "/Users/skandy/workspace/we-do-ai/real estate abstract generation/TextGenerationDemo/TextGenerationDemo/ClientApp",
   "author": {
     "name": "Microsoft",
     "email": "nugetaad@microsoft.com",
     "url": "https://www.microsoft.com"
   },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AzureAD/microsoft-authentication-library-for-js.git"
+  "bugs": {
+    "url": "https://github.com/AzureAD/microsoft-authentication-library-for-js/issues"
   },
-  "version": "1.1.3",
-  "description": "Microsoft Authentication Library for js",
-  "keywords": [
-    "implicit",
-    "js",
-    "AAD",
-    "msal",
-    "oauth"
-  ],
-  "main": "./lib-commonjs/index.js",
-  "module": "./lib-es6/index.js",
-  "types": "./lib-commonjs/index.d.ts",
-  "engines": {
-    "node": ">=0.8.0"
-  },
-  "scripts": {
-    "clean": "shx rm -rf dist docs lib-commonjs lib-es6",
-    "doc": "typedoc --mode modules --excludePrivate --excludeProtected --out ./docs ./src/ --gitRevision dev",
-    "build:modules": "tsc && tsc -m es6 --outDir lib-es6",
-    "build": "npm run clean && npm run doc && npm run build:modules && npm run lint && npm run build:webpack && npm test",
-    "test": "mocha -r test/setup.js -r ts-node/register -r source-map-support/register ./test/**/*.spec.ts",
-    "test:coverage": "nyc mocha -r test/setup.js -r ts-node/register -r source-map-support/register ./test/**/*.spec.ts",
-    "lint": "eslint src --ext .ts",
-    "build:webpack": "webpack",
-    "prepack": "npm run build"
-  },
+  "bundleDependencies": false,
   "dependencies": {
     "tslib": "^1.9.3"
   },
+  "deprecated": false,
+  "description": "Microsoft Authentication Library for js",
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/handlebars": "4.0.33",
@@ -63,12 +61,26 @@
     "jsdom": "14.0.0",
     "jsdom-global": "3.0.2",
     "jshint": "^2.9.7",
+    "karma": "^4.0.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cli": "^1.0.1",
+    "karma-coverage-istanbul-reporter": "^2.0.1",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-phantomjs-launcher": "*",
+    "karma-remap-coverage": "^0.1.5",
+    "karma-remap-istanbul": "^0.6.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.32",
+    "karma-typescript": "^4.0.0",
+    "karma-verbose-reporter": "0.0.6",
+    "karma-webpack": "^4.0.0-rc.5",
     "mocha": "^6.1.3",
-    "nyc": "^14.1.1",
     "phantomjs-polyfill": "0.0.2",
     "shx": "^0.2.2",
     "sinon": "^7.3.1",
-    "source-map-support": "^0.5.13",
     "sourcemap-istanbul-instrumenter-loader": "^0.2.0",
     "ts-loader": "^5.3.1",
     "ts-node": "^8.0.3",
@@ -82,5 +94,36 @@
   },
   "directories": {
     "test": "test"
-  }
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "homepage": "https://github.com/AzureAD/microsoft-authentication-library-for-js#readme",
+  "keywords": [
+    "implicit",
+    "js",
+    "AAD",
+    "msal",
+    "oauth"
+  ],
+  "license": "MIT",
+  "main": "./lib-commonjs/index.js",
+  "module": "./lib-es6/index.js",
+  "name": "msal",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzureAD/microsoft-authentication-library-for-js.git"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run doc && npm run build:modules && npm run lint && npm run build:webpack",
+    "build:modules": "tsc && tsc -m es6 --outDir lib-es6",
+    "build:webpack": "webpack",
+    "clean": "shx rm -rf dist docs lib-commonjs lib-es6",
+    "doc": "typedoc --mode modules --excludePrivate --excludeProtected --out ./docs ./src/ --gitRevision dev",
+    "lint": "eslint src/**/*.ts --quiet",
+    "prepack": "npm run build",
+    "test": "karma start --single-run --browsers PhantomJS karma.conf.js"
+  },
+  "types": "./lib-commonjs/index.d.ts",
+  "version": "1.1.3"
 }

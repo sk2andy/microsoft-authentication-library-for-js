@@ -22,6 +22,7 @@ export enum API_CODE {
     LoginPopup = 2005
 }
 
+
 export enum API_EVENT_IDENTIFIER {
     AcquireTokenRedirect = "AcquireTokenRedirect",
     AcquireTokenSilent = "AcquireTokenSilent",

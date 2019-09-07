@@ -1,7 +1,5 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License.
- */
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
 
 import { Constants } from "../utils/Constants";
 import { ClientAuthError } from "./ClientAuthError";
