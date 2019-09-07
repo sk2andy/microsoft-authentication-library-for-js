@@ -121,7 +121,7 @@
     "clean": "shx rm -rf dist docs lib-commonjs lib-es6",
     "doc": "typedoc --mode modules --excludePrivate --excludeProtected --out ./docs ./src/ --gitRevision dev",
     "lint": "eslint src/**/*.ts --quiet",
-    "prepack": "npm run build",
+    "prepack": "",
     "test": "karma start --single-run --browsers PhantomJS karma.conf.js"
   },
   "types": "./lib-commonjs/index.d.ts",
