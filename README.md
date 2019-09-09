@@ -1,7 +1,7 @@
 What is this fork about?
 ========================
 
-I fixed the google login issues with the help of the great community of github (the idea wasn't from me)
+I fixed the google login issues with the help of the great community of github (@sushi4u and @kumarunster)
 
 It is a precompiled module. Use it like this:
 ```
